@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 
@@ -72,6 +73,9 @@ TEMPLATES = [
         },
     },
 ]
+
+STATICFILES_DIRS = [STATIC_DIR, ]
+
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
