@@ -63,7 +63,26 @@ def add_cat(name, views=0, likes=0):
     return c
 
 
+from sys import argv
+from getopt import getopt, GetoptError
+
+
+def runScript(argv):
+    try:
+        opts, args = getopt(argv, "c:p")
+    except GetoptError:
+        print ("Failed to Parse ")
+        exit()
+    for opt, arg in opts:
+        if opt == '-c':
+            print ("Clearing Database ...")
+            cleardb()
+        elif opt == '-p':
+            print("Starting Rango Population Scripts")
+            populate()
+        else:
+            print ("Failed to Parse ")
+            exit()
+
 if __name__ == '__main__':
-    print("Starting Rango Population Scripts")
-    cleardb()
-    populate()
+    runScript(argv[1:])
